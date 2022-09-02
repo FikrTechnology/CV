@@ -27,7 +27,7 @@ hamburger.addEventListener("click", function () {
 // Klik di luar Hamburger
 window.addEventListener("click", function (e) {
   if (e.target != hamburger && e.target != navMenu) {
-    hamburger.classList.toggle("hamburger-active");
+    hamburger.classList.remove("hamburger-active");
     navMenu.classList.add("hidden");
   }
 });
@@ -40,9 +40,13 @@ darkToggle.addEventListener("click", function () {
   if (darkToggle.checked) {
     html.classList.add("dark");
     localStorage.theme = "dark";
+    hamburger.classList.add("hamburger-active");
+    navMenu.classList.remove("hidden");
   } else {
     html.classList.remove("dark");
     localStorage.theme = "light";
+    hamburger.classList.add("hamburger-active");
+    navMenu.classList.remove("hidden");
   }
 });
 
