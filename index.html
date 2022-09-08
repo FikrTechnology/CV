@@ -481,9 +481,17 @@
     form.addEventListener('submit', e => {
       e.preventDefault()
       fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => console.log('Success!', response))
+        .then(response => clearValue(response))
         .catch(error => console.error('Error!', error.message))
     })
+  </script>
+  <script>
+    function clearValue(response){
+      document.getElementById("name").value = '';
+      document.getElementById("email").value = '';
+      document.getElementById("message").value = '';
+      console.log('Success!', response);
+    }
   </script>
   </body>
 </html>
