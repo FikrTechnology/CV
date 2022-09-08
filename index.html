@@ -300,7 +300,7 @@
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2">Blog</h4>
             <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">Tulisan Terkini</h2>
-            <p class="font-medium text-md text-secondary md:text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate distinctio iure qui pariatur!</p>
+            <p class="font-medium text-md text-secondary md:text-lg">Berikut hasil rangkuman yang sudah saya pelajari dari berbagai course Online, semoga bermanfaat dan jangan lupa untuk share ke social media kalian ya..~</p>
           </div>
 
           <div class="flex flex-wrap">
@@ -353,26 +353,26 @@
           <div class="max-w-xl mx-auto text-center mb-16">
             <h4 class="font-semibold text-lg text-primary mb-2">Contact</h4>
             <h2 class="font-bold text-dark text-3xl mb-4 sm:text-4xl lg:text-5xl dark:text-white">Hubungi Kami</h2>
-            <p class="font-medium text-md text-secondary md:text-lg">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, obcaecati.</p>
+            <p class="font-medium text-md text-secondary md:text-lg">Ingin tau lebih lanjut tentang saya? yuuk kirim pesan kalian di bawah sini..</p>
           </div>
         </div>
 
-        <form>
+        <form name="fitech-submit-form">
           <div class="w-full lg:w-2/3 lg:mx-auto">
             <div class="w-full mb-8 px-4">
               <label for="name" class="text-base font-bold text-primary">Nama</label>
-              <input type="text" name="" id="name" class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary">
+              <input type="text" name="nama" id="name" class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" placeholder="Masukkan Nama Anda">
             </div>
             <div class="w-full mb-8 px-4">
               <label for="email" class="text-base font-bold text-primary">Email</label>
-              <input type="email" name="" id="email" class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary">
+              <input type="email" name="email" id="email" class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary" placeholder="Masukkan Email Anda">
             </div>
             <div class="w-full mb-8 px-4">
               <label for="message" class="text-base font-bold text-primary">Pesan</label>
-              <textarea type="email" name="" id="message" class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32"></textarea>
+              <textarea type="email" name="pesan" id="message" class="w-full bg-slate-200 text-dark p-3 rounded-md focus:outline-none focus:ring-primary focus:ring-1 focus:border-primary h-32" placeholder="Silahkan isi pesan Anda"></textarea>
             </div>
             <div class="w-full px-4">
-              <button class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-500">Kirim</button>
+              <button class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full w-full hover:opacity-80 hover:shadow-lg transition duration-500" type="submit" id="submitForm">Kirim</button>
             </div>
           </div>
         </form>
@@ -474,5 +474,16 @@
     </a>
     <!-- Back to top End -->
   <script src="./assets/js/script.js"></script>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxBMkBlueKTyJ-o6cZIiUEeqEJOQwaArCMPYlQF_6gEXEyrmj-7CYIoPg1JAncWnLc/exec'
+    const form = document.forms['fitech-submit-form']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
   </body>
 </html>
